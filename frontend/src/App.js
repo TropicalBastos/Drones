@@ -8,6 +8,7 @@ import { Route, Switch } from 'react-router'; // react-router v4
 import { ConnectedRouter } from 'connected-react-router';
 import rootReducer from './reducers/RootReducer';
 import Intro from './Intro/Main';
+import DroneSys from './DroneSys/Main';
 import './styles/main.scss';
 
 /* Create a browser history so the 
@@ -36,6 +37,7 @@ ReactDOM.render(
         <div>
           <Switch>
             <Route exact path="/" component={Intro} />
+            <Route exact path="/drone-sys" component={DroneSys} />
           </Switch>
         </div>
       </ConnectedRouter>
