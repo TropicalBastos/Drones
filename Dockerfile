@@ -9,10 +9,10 @@ COPY package*.json ./
 # Lets install those dependencies
 RUN npm install
 
-# Some node global that are required
+# We need this node global
 RUN npm install webpack-cli -g
 
-# Build frotnend asses
+# Build frontend assets
 RUN webpack --build
 
 COPY  . .
