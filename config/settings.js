@@ -1,0 +1,14 @@
+
+/**
+ * Its always nice to keep our app's constants in an
+ * isolated globally accessible file, given the scale of
+ * this app
+ */
+const settings = Object.freeze({
+    PORT : 8080,
+    HOST : '0.0.0.0',
+    FRONTEND_DIR : __dirname + '/../frontend',
+    INDEX_PATH : __dirname + '/../frontend/index.html'
+});
+
+module.exports = settings;

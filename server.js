@@ -1,12 +1,11 @@
 'use strict';
 
+const settings = require('./config/settings');
 const express = require('express');
+var routeProvider = require('./routes/provider');
 
-/** Constants */
-const PORT = 8080;
-const HOST = '0.0.0.0';
-const FRONTEND_DIR = __dirname + '/frontend';
-const INDEX_PATH = __dirname + '/frontend/index.html';
+/** Extract the necesarry constants */
+const { PORT, HOST, FRONTEND_DIR } = settings;
 
 /** App */
 const app = express();
@@ -14,9 +13,8 @@ const app = express();
 /** Static files are served through frontend  */
 app.use(express.static(FRONTEND_DIR));
 
-app.get('/', (req, res) => {
-  res.sendFile(INDEX_PATH);
-});
+/** Load our routes into the app */
+routeProvider(app);
 
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
