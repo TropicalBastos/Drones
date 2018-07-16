@@ -2,6 +2,7 @@
 
 const settings = require('./config/settings');
 const express = require('express');
+var bodyParser = require('body-parser');
 var DataProvider = require('./model/DroneDataProvider');
 var RouteProvider = require('./routes/provider');
 
@@ -11,8 +12,11 @@ const { PORT, HOST, FRONTEND_DIR } = settings;
 /** App */
 const app = express();
 
-/** Static files are served through frontend  */
+/** Static files are served through frontend  
+ * Other middleware required also
+*/
 app.use(express.static(FRONTEND_DIR));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 /** Initialise our global in-memory data provider */
 global.dataProvider = new DataProvider();

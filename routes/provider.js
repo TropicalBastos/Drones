@@ -16,7 +16,11 @@ var provider = (function(){
     const routes = app => {
         for(let i = 0; i < routesConfig.length; i++){
             let route = routesConfig[i];
-            app.get(route.path, route.cb);
+            if(route.get)
+                app.get(route.get, route.cb);
+
+            if(route.post)
+                app.post(route.post, route.cb);
         }
     }
 

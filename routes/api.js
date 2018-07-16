@@ -14,14 +14,14 @@ const DroneController = require('../controller/DroneController');
  */
 const routes = [
     {
-        path: '/',
+        get: '/',
         cb: (req, res) => {
             res.sendFile(settings.INDEX_PATH);
         }
     },
 
     {
-        path: '/get-drones',
+        get: '/get-drones',
         cb: (req, res) => {
             DroneController.getDrones(req, res);
         }
