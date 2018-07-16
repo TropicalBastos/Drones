@@ -22,7 +22,8 @@ const controller = {
         var drone = req.body.drone;
 
         if(!drone){
-            res.send(JSON.stringify({ error: "No data provided" }))
+            res.send(JSON.stringify({ error: "No data provided" }));
+            return;
         }
 
         try{

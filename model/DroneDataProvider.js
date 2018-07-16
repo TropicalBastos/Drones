@@ -34,20 +34,12 @@ function DataProvider (){
     /**
      * Modifies the data of a drone by the index of the drone passed
      * @param {Object} droneData - the data to overwrite
-     * @throws Error - UndefinedIndex error
      */
     this.rewrite = droneData => {
-        let index = null;
-        var indexedDrone = this.dataPersistor.data.filter(drone, i => {
-            index = i;
-            return drone.id === data.id;
+        this.dataPersistor.data.forEach((drone, i, dataArr) => {
+            if(drone.id === droneData.id)
+                dataArr[i] = droneData;
         });
-
-        if(!index){
-            throw new Error('Unknown index of drone');
-        }
-
-        this.dataPersistor.data[index] = droneData;
     }
 
 }

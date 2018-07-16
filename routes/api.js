@@ -25,6 +25,13 @@ const routes = [
         cb: (req, res) => {
             DroneController.getDrones(req, res);
         }
+    },
+
+    {
+        post: '/modify-drone',
+        cb: (req, res) => {
+            DroneController.rewriteDrone(req, res);
+        }
     }
 ];
 

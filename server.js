@@ -16,7 +16,7 @@ const app = express();
  * Other middleware required also
 */
 app.use(express.static(FRONTEND_DIR));
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({ extended: true }));
 
 /** Initialise our global in-memory data provider */
 global.dataProvider = new DataProvider();
