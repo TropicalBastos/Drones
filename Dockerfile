@@ -9,13 +9,15 @@ COPY package*.json ./
 # Lets install those dependencies
 RUN npm install
 
-# We need this node global
+# We need these globals
+RUN npm install webpack -g
 RUN npm install webpack-cli -g
 
-# Build frontend assets
-RUN webpack --build
-
 COPY  . .
+
+# Build frontend assets
+RUN cd /usr/src/app
+RUN webpack --build
 
 # Expose our drone app on port 8080
 EXPOSE 8080
