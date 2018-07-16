@@ -9,16 +9,17 @@
 
 var DataPersistor = require('./InMemoryDataPersistor');
 
-var dataProvider = (function(){
+function DataProvider (){
 
-    const dataProvider = data => {
-        this.dataPersistor = DataPersistor();
-    }
+    /**
+     * Internal data persistor
+     */
+    this.dataPersistor = new DataPersistor();
 
     /** Gets all the drones' current data
      * @return {Array} array of drone data
      */
-    dataProvider.getData = () => {
+    this.getData = () => {
         return this.dataPersistor.data;
     }
 
@@ -26,7 +27,7 @@ var dataProvider = (function(){
      * Sets the data persistor's data to the passed array of data
      * @param {Array} data array of drone data to set
      */
-    dataProvider.setData = data => {
+    this.setData = data => {
         this.dataPersistor.setData(data);
     }
 
@@ -35,7 +36,7 @@ var dataProvider = (function(){
      * @param {Object} droneData - the data to overwrite
      * @throws Error - UndefinedIndex error
      */
-    dataProvider.rewrite = droneData => {
+    this.rewrite = droneData => {
         let index = null;
         var indexedDrone = this.dataPersistor.data.filter(drone, i => {
             index = i;
@@ -49,8 +50,6 @@ var dataProvider = (function(){
         this.dataPersistor.data[index] = droneData;
     }
 
-    return dataProvider;
+}
 
-})();
-
-module.exports = dataProvider;
+module.exports = DataProvider;

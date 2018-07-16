@@ -3,12 +3,12 @@
  * account of all drones in memory
  */
 
-var dataPersistor = (function(){
+function InMemoryDataPersistor(){
 
     /**
      * Our default in memory data
      */
-    var initialData = [
+    this.data = [
         /** Northampton based drone */
         {
             id: 0111103,
@@ -46,12 +46,6 @@ var dataPersistor = (function(){
         },
     ]
 
-    var persistor = () => {
-        this.data = initialData;
-    }
+}
 
-    return persistor;
-
-})();
-
-module.exports = dataPersistor;
+module.exports = InMemoryDataPersistor;

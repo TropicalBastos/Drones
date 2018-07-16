@@ -1,6 +1,7 @@
 'use strict';
 
 const settings = require('../config/settings');
+const DroneController = require('../controller/DroneController');
 
 /**
  * The app's global routes configuration object
@@ -22,7 +23,7 @@ const routes = [
     {
         path: '/get-drones',
         cb: (req, res) => {
-            res.send({test: "success"});
+            DroneController.getDrones(req, res);
         }
     }
 ];
