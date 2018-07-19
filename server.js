@@ -25,5 +25,10 @@ global.dataProvider = new DataProvider();
 RouteProvider(app);
 
 /** Begin! */
-app.listen(PORT, HOST);
+var server = app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
+
+module.exports = {
+    server: server,
+    app: app
+}
