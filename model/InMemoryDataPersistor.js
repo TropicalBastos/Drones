@@ -46,6 +46,13 @@ function InMemoryDataPersistor(){
         },
     ]
 
+    /** Sets the internal data to the one provided
+     * @param {*} data 
+     */
+    this.setData = function(data){
+        this.data = data;
+    }
+
 }
 
 module.exports = InMemoryDataPersistor;
