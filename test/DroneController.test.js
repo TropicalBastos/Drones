@@ -49,11 +49,4 @@ describe('Get DroneController tests', () => {
         });
     });
 
-
-    /**
-     * Close server after all tests complete
-     */
-    after(() => {
-        server.close();
-    })
 });
