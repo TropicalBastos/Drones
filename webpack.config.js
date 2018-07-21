@@ -1,4 +1,5 @@
 var config = {
+    mode: 'development',
     entry: './frontend/src/App.js',
     output: {
        path: __dirname + '/frontend/dist',
