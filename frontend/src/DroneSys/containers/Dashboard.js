@@ -24,6 +24,7 @@ class Dashboard extends Loader{
     componentDidMount(){
         axios.get(routesConfig.GET_DRONES).then((response) => {
             this.props.actions.loadDrones(response.data);
+            this.cancel();
         }).catch((reason) => {
             //this.showError(reason);
         });
@@ -36,7 +37,7 @@ class Dashboard extends Loader{
 
         return(
             <div className="dashboard">
-                {/* <DroneMap /> */}
+                <DroneMap drones={this.props.drones} />
             </div>
         );
     }

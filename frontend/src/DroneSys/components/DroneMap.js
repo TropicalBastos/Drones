@@ -1,26 +1,34 @@
 import React, { Component } from 'react';
+import Leaflet from 'leaflet';
 import mapConfig from '../../config/map';
+import { Map, Marker, Popup, TileLayer } from  'react-leaflet';
+
+Leaflet.Icon.Default.imagePath = '//cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.0/images/';
 
 export default class DroneMap extends Component {
 
     render() {
       // create an array with marker components
-      const LeafletMarkers = markers.map(marker => (
-        <Marker position={marker.latlng} key={`marker_${marker.name}`}>
-          <Popup>
-            <span>{marker.name}</span>
-          </Popup>
-        </Marker>
-      ));
+      const Markers = this.props.drones.map(drone => {
+          const { location } = drone;
+          return <Marker position={ {lat: location.lat, lng: location.long } } key={`marker_${drone.id}`}>
+                    <Popup>
+                        <span>Drone ID: {drone.id}</span>
+                    </Popup>
+                </Marker>
+      });
   
       return (
         <div className="map">
-          <Map center={mapConfig.center} zoom={mapConfig.zoom} className="map__reactleaflet">
+          <Map style={{height: '100vh'}} 
+          center={mapConfig.center} 
+          zoom={mapConfig.zoom} 
+          className="map__reactleaflet">
             <TileLayer
               url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"
               attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'
             />
-            {LeafletMarkers}
+            {Markers}
           </Map>
         </div>
       );
