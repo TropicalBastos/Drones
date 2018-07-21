@@ -37,6 +37,7 @@ class Dashboard extends Loader{
 
         return(
             <div className="dashboard">
+                <h1>Drones Online: {this.props.drones.length}</h1>
                 <DroneMap drones={this.props.drones} />
             </div>
         );

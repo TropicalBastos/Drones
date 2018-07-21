@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Leaflet from 'leaflet';
 import mapConfig from '../../config/map';
-import { Map, Marker, Popup, TileLayer } from  'react-leaflet';
+import { Map, Popup, TileLayer, Marker } from  'react-leaflet';
 
 Leaflet.Icon.Default.imagePath = '//cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.0/images/';
 
@@ -13,7 +13,9 @@ export default class DroneMap extends Component {
           const { location } = drone;
           return <Marker position={ {lat: location.lat, lng: location.long } } key={`marker_${drone.id}`}>
                     <Popup>
-                        <span>Drone ID: {drone.id}</span>
+                        <span>Drone ID: {drone.id}</span><br />
+                        <span>Latitude: {location.lat}</span><br />
+                        <span>Longitude: {location.long}</span><br />
                     </Popup>
                 </Marker>
       });

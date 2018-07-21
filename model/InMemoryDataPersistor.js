@@ -40,8 +40,8 @@ function InMemoryDataPersistor(){
         {
             id: 3,
             location: {
-                lat: 52.6369,
-                long: 1.1398
+                lat: 51.6369,
+                long: -2.1398
             }
         },
     ]
