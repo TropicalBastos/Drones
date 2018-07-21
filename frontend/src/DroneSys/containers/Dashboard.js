@@ -22,7 +22,6 @@ class Dashboard extends Loader{
      * Load the drones into the redux store
      */
     componentDidMount(){
-        //TODO load drone data
         axios.get(routesConfig.GET_DRONES).then((response) => {
             this.props.actions.loadDrones(response.data);
         }).catch((reason) => {

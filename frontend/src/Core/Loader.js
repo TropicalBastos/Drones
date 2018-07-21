@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 /**
  * Our loader component
- * this will be inherited by ay component that will load
+ * this will be inherited by any component that will load
  * asynchronous data so that we can show the users that said data
  * is being loaded
  */
