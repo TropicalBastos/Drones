@@ -7,8 +7,8 @@
 const settings = Object.freeze({
     PORT : 8080,
     HOST : '0.0.0.0',
-    FRONTEND_DIR : __dirname + '/../frontend',
-    INDEX_PATH : __dirname + '/../frontend/index.html'
+    FRONTEND_DIR : process.env.PWD + '/frontend',
+    INDEX_PATH : process.env.PWD + '/frontend/index.html'
 });
 
 module.exports = settings;

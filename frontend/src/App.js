@@ -4,7 +4,7 @@ import { createBrowserHistory } from 'history';
 import { applyMiddleware, compose, createStore } from 'redux';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { Provider } from 'react-redux';
-import { Route, Switch } from 'react-router'; // react-router v4
+import { Route, Switch, Redirect } from 'react-router'; // react-router v4
 import { ConnectedRouter } from 'connected-react-router';
 import droneReducer from './reducers/DroneReducer';
 import Intro from './Intro/Main';
@@ -38,6 +38,9 @@ ReactDOM.render(
           <Switch>
             <Route exact path="/" component={Intro} />
             <Route exact path="/drone-sys" component={DroneSys} />
+            <Route exact path="/*" render={() => {
+              return <Redirect to="/" />
+            }} />
           </Switch>
         </div>
       </ConnectedRouter>

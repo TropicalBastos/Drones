@@ -32,7 +32,18 @@ const routes = [
         cb: (req, res) => {
             DroneController.rewriteDrone(req, res);
         }
-    }
+    },
+
+    /**
+     * Match all other routes and route them to 
+     * base url
+     */
+    {
+        get: /\/.*/,
+        cb: (req, res) => {
+            res.sendFile(settings.INDEX_PATH);
+        }
+    },
 ];
 
 module.exports = routes;
