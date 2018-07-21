@@ -3,6 +3,13 @@ import Leaflet from 'leaflet';
 import mapConfig from '../../config/map';
 import { Map, Popup, TileLayer, Marker } from  'react-leaflet';
 
+/**
+ * Based on React Leaflet maps
+ * the drone map renders all the online
+ * drones on the screen and where they
+ * are on the map based on their latlong geolocation
+ */
+
 Leaflet.Icon.Default.imagePath = '//cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.0/images/';
 
 export default class DroneMap extends Component {
