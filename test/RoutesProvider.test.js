@@ -33,6 +33,15 @@ describe('Check that all routes work', () => {
          */
         routes.forEach((route) => {
             isGet = (route.get) ? true : false;
+
+            /** One of the routes is a catch all 
+             * - skip it and increment completed requests counter
+             * */
+            if(isGet instanceof RegExp){
+                completedRequests++;
+                return;
+            }
+
             if(isGet){
                 chai.request('localhost:8080')
                 .get(route.get)
