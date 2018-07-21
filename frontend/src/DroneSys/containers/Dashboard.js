@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import Loader from '../../Core/Loader';
 import DroneMap from '../components/DroneMap';
-import axios from 'axios';
-import routesConfig from '../../config/routes';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as Actions from '../../actions/AppActions';
 import Back from '../../Core/Back';
+import DroneHttp from '../../Core/helpers/DroneHttp';
 
 /**
  * Sysadmin dashboard
@@ -23,12 +22,12 @@ class Dashboard extends Loader{
      * Load the drones into the redux store
      */
     componentDidMount(){
-        axios.get(routesConfig.GET_DRONES).then((response) => {
-            this.props.actions.loadDrones(response.data);
+        DroneHttp.getDrones().then((drones) => {
+            this.props.actions.loadDrones(drones);
             this.cancel(1000);
         }).catch((reason) => {
             //this.showError(reason);
-        });
+        })
     }
 
     render(){
