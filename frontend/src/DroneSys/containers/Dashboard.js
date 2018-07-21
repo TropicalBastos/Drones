@@ -6,6 +6,7 @@ import routesConfig from '../../config/routes';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as Actions from '../../actions/AppActions';
+import Back from '../../Core/Back';
 
 /**
  * Sysadmin dashboard
@@ -24,7 +25,7 @@ class Dashboard extends Loader{
     componentDidMount(){
         axios.get(routesConfig.GET_DRONES).then((response) => {
             this.props.actions.loadDrones(response.data);
-            this.cancel();
+            this.cancel(1000);
         }).catch((reason) => {
             //this.showError(reason);
         });
@@ -39,6 +40,7 @@ class Dashboard extends Loader{
             <div className="dashboard">
                 <h1>Drones Online: {this.props.drones.length}</h1>
                 <DroneMap drones={this.props.drones} />
+                <Back history={this.props.history} />
             </div>
         );
     }

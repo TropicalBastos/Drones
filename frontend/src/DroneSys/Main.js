@@ -8,7 +8,7 @@ export default class Main extends Component{
 
     render(){
         return(
-            <Dashboard />
+            <Dashboard history={this.props.history} />
         );
     }
 

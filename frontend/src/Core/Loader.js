@@ -16,10 +16,18 @@ export default class Loader extends Component{
     }
 
     /** Cancels the component from loading
+     * @param number | null - timeout to cancel load
      * @return void
      */
-    cancel(){
-        this.setState({ loading: false });
+    cancel(timeout = null){
+        if(timeout){
+            var self = this;
+            setTimeout(() => {
+                self.setState({ loading: false });
+            }, timeout);
+        }else{
+            this.setState({ loading: false });
+        }
     }
 
     /** Renders the loading graphic
@@ -28,7 +36,7 @@ export default class Loader extends Component{
     renderLoader(){
         return(
             <div className="loader-container">
-                <img src="" />
+                <img className="loader" src="/res/loader.gif" />
             </div>
         );
     }
