@@ -6,7 +6,7 @@ import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router'; // react-router v4
 import { ConnectedRouter } from 'connected-react-router';
-import rootReducer from './reducers/RootReducer';
+import droneReducer from './reducers/DroneReducer';
 import Intro from './Intro/Main';
 import DroneSys from './DroneSys/Main';
 import './styles/main.scss';
@@ -21,7 +21,7 @@ const history = createBrowserHistory();
 var initialState = {};
 
 const store = createStore(
-    connectRouter(history)(rootReducer), // new root reducer with router state
+    connectRouter(history)(droneReducer), // new root reducer with router state
     initialState,
     compose(
       applyMiddleware(
