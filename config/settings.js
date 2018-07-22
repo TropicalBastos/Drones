@@ -7,7 +7,7 @@
 const settings = Object.freeze({
     PORT : 8080,
     HOST : '0.0.0.0',
-    FRONTEND_DIR : process.env.PWD + '/frontend',
+    FRONTEND_DIR : process.env.PWD + '/frontend/public',
     INDEX_PATH : process.env.PWD + '/frontend/index.html'
 });
 

@@ -2,7 +2,7 @@ var config = {
     mode: 'development',
     entry: './frontend/src/App.js',
     output: {
-       path: __dirname + '/frontend/dist',
+       path: __dirname + '/frontend/public/dist',
        filename: 'index.js',
     },
     module: {
