@@ -23,7 +23,8 @@ export default class DroneMap extends Component {
             <div className="map">
                 <Map style={{height: 'calc(100vh - 100px)'}} 
                 center={latlng} 
-                zoom={mapConfig.pilotZoom} 
+                onZoom={(e) => { this.props.changeZoom(e.target.zoom); }}
+                zoom={this.props.zoom} 
                 className="map__reactleaflet">
                     <TileLayer
                     url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"

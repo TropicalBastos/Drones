@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import DroneMap from '../components/DroneMap';
 import { Redirect } from 'react-router';
 import Controls from '../components/Controls';
+import mapConfig from '../../config/map';
 
 /**
  * Main component holding the business logic
@@ -22,8 +23,10 @@ export default class DroneController extends Component{
         this.moveDown = this.moveDown.bind(this);
         this.stopMotion = this.stopMotion.bind(this);
         this.moveUpInterval = this.moveUpInterval.bind(this);
+        this.changeZoom = this.changeZoom.bind(this);
         this.state = {
-            drone: props.location.state
+            drone: props.location.state,
+            zoom: mapConfig.pilotZoom
         };
     }
 
@@ -91,6 +94,13 @@ export default class DroneController extends Component{
     /**
      * End move controls
      */
+
+     /** Changes the zoom's state
+      * @return void
+      */
+    changeZoom(newZoomLevel){
+        this.setState({ zoom: newZoomLevel });
+    }
     
     render(){
         /**
@@ -104,7 +114,10 @@ export default class DroneController extends Component{
         return (
             <div className="drone-pilot controller">
                 <h1>Cockpit</h1>
-                <DroneMap drone={this.state.drone} />
+                <DroneMap 
+                changeZoom={this.changeZoom}
+                zoom={this.state.zoom} 
+                drone={this.state.drone} />
                 <Controls 
                 moveUp={this.moveUp}
                 moveLeft={this.moveLeft} 
