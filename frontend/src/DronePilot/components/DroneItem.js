@@ -19,7 +19,7 @@ const DroneItem = (props) => {
                 }>
                     <div>
                         <span>Drone ID: {props.drone.id}</span><br />
-                        <span className="name">Drone Name: {names[props.drone.id]}</span><br />
+                        <span className="name">Drone Name: {props.drone.name}</span><br />
                         <span>Location:</span>
                         <ul>
                             <li className="drone-location">Latitude: {location.lat}</li>

@@ -21,6 +21,7 @@ export default class DroneMap extends Component {
           return <Marker position={ {lat: location.lat, lng: location.long } } key={`marker_${drone.id}`}>
                     <Popup>
                         <span>Drone ID: {drone.id}</span><br />
+                        <span className="name">{drone.name}</span><br />
                         <span>Latitude: {location.lat}</span><br />
                         <span>Longitude: {location.long}</span><br />
                     </Popup>
