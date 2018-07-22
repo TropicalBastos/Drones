@@ -20,7 +20,9 @@ RUN cd /usr/src/app
 RUN webpack --build
 
 # Expose our drone app on port 8080
+# expose socket service on port 8090
 EXPOSE 8080
+EXPOSE 8090
 
 # Last but not least, define the command to run the app
 CMD ["npm", "start"]
