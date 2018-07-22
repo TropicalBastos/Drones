@@ -1,8 +1,9 @@
 # Drones
 ## Welcome to Drones
-<img class="float-left" width="33%" src="/frontend/public/res/screenshots/sys.png" />
-<img class="float-left" width="33%"  src="/frontend/public/res/screenshots/selection.png" />
-<img class="float-left" width="33%"  src="/frontend/public/res/screenshots/pilot.png" />
+| | | |
+|:-------------------------:|:-------------------------:|:-------------------------:|
+|<img width="1604" src="/frontend/public/res/screenshots/sys.png" /> |  <img width="1604"  src="/frontend/public/res/screenshots/selection.png" /> | <img width="1604"  src="/frontend/public/res/screenshots/pilot.png" /> |
+
 <p>Drones is a live realtime virtual drone viewer and controller. Observe your fleet of drones on a larger geographical scale or take control, become a drone pilot and navigate your way accross the scapes.</p>
 
 # Installation
