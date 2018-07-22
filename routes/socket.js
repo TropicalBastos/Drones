@@ -29,5 +29,6 @@ const start = (port = DEFAULT_SOCKET_PORT) => {
 }
 
 module.exports = {
-    start
+    start,
+    io
 };

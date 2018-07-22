@@ -1,4 +1,4 @@
-var { server, app } = require('../server');
+var { server, app, io } = require('../server');
 var assert = require('assert');
 var chai = require('chai')
 var chaiHttp = require('chai-http');
@@ -65,8 +65,10 @@ describe('Check that all routes work', () => {
 
     /**
      * Close server after all tests complete
+     * close the socket service too!
      */
     after(() => {
+        io.close();
         server.close();
     })
 

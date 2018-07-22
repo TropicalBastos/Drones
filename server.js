@@ -34,5 +34,6 @@ socket.start();
 
 module.exports = {
     server: server,
-    app: app
+    app: app,
+    io: socket.io
 }

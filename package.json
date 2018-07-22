@@ -6,7 +6,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "mocha"
+    "test": "./node_modules/mocha/bin/mocha"
   },
   "dependencies": {
     "axios": "^0.18.0",
