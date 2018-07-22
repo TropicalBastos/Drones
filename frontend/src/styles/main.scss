@@ -111,6 +111,48 @@ body{
             position: relative;
         }
 
+        .controls-wrapper{
+            position: absolute;
+            bottom: 0;
+            height: 100px;
+            width: 100vw;
+            z-index: 2;
+            background-color: $grey;
+
+            .controls{
+                position: relative;
+                width: 320px;
+                margin: 0 auto;
+                height: 100%;
+
+                div:not(.clearfix){
+                    height: 30%;
+
+                    img{
+                        display: block;
+                        width: 40px;
+                        height: auto;
+                        margin: 0 auto;
+                        cursor: pointer;
+                    }
+                }
+
+                .single{
+                    width: 200px;
+                    margin: 0 auto;
+                }
+
+                .double{
+                    float: left;
+                    width: 50%;
+                }
+            }
+        }
+
+        &.controller{
+            overflow: hidden;
+        }
+
     }
 
 }
@@ -138,4 +180,8 @@ body{
         height: 60px;
     }
 
+}
+
+.clearfix{
+    clear: both;                
 }

@@ -11,7 +11,12 @@ const DroneItem = (props) => {
     const { location } = props.drone;
 
     return <li className="drone-item">
-                <Link className="drone-link" to={`/drone-pilot/${props.drone.id}`}>
+                <Link className="drone-link" to={
+                    {
+                        pathname: "/drone-pilot/cockpit",
+                        state: props.drone
+                    }
+                }>
                     <div>
                         <span>Drone ID: {props.drone.id}</span><br />
                         <span className="name">Drone Name: {names[props.drone.id]}</span><br />

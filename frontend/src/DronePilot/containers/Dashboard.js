@@ -1,6 +1,6 @@
 import React from 'react';
 import DroneSelector from './DroneSelector';
-// import DroneController from './DroneController';
+import DroneController from './DroneController';
 import { Route, Switch } from 'react-router';
 
 /**
@@ -19,7 +19,7 @@ const Dashboard = (props) => {
                 <Route exact path="/drone-pilot" render={() => {
                     return <DroneSelector drones={props.drones} />
                 }} />
-                {/* <Route exact path="/drone-pilot/controller" component={DroneController} /> */}
+                <Route exact path="/drone-pilot/cockpit" component={DroneController} />
             </Switch>
         </div>
     );
