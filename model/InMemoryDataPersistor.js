@@ -14,8 +14,8 @@ function InMemoryDataPersistor(){
             id: 0,
             name: "Seeker",
             location: {
-                lat: 52.2405,
-                long: 0.9027
+                lat: 52.8405,
+                long: 0.7027
             }
         },
 

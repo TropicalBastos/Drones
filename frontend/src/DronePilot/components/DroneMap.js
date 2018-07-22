@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Leaflet from 'leaflet';
 import mapConfig from '../../config/map';
 import { Map, Popup, TileLayer, Marker } from  'react-leaflet';
+import { AnimatedDronedIcon } from '../../Core/DroneIcon';
 
 /**
  * Based on React Leaflet maps
@@ -30,7 +31,9 @@ export default class DroneMap extends Component {
                     url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"
                     attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attribution">CARTO</a>'
                     />
-                    <Marker position={ latlng }>
+                    <Marker 
+                    icon={AnimatedDronedIcon}
+                    position={ latlng }>
                         <Popup>
                             <span>Drone ID: {drone.id}</span><br />
                             <span>Latitude: {location.lat}</span><br />

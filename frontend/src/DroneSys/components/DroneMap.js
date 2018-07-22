@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Leaflet from 'leaflet';
 import mapConfig from '../../config/map';
 import { Map, Popup, TileLayer, Marker } from  'react-leaflet';
+import { DroneIcon } from '../../Core/DroneIcon';
 
 /**
  * Based on React Leaflet maps
@@ -18,7 +19,10 @@ export default class DroneMap extends Component {
       // create an array with marker components
       const Markers = this.props.drones.map(drone => {
           const { location } = drone;
-          return <Marker position={ {lat: location.lat, lng: location.long } } key={`marker_${drone.id}`}>
+          return <Marker 
+          icon={DroneIcon}
+          position={ {lat: location.lat, lng: location.long } } 
+          key={`marker_${drone.id}`}>
                     <Popup>
                         <span>Drone ID: {drone.id}</span><br />
                         <span className="name">{drone.name}</span><br />
