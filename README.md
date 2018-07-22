@@ -4,11 +4,11 @@
 |:-------------------------:|:-------------------------:|:-------------------------:|
 |<img width="1604" src="/frontend/public/res/screenshots/sys.png" /> |  <img width="1604"  src="/frontend/public/res/screenshots/selection.png" /> | <img width="1604"  src="/frontend/public/res/screenshots/pilot.png" /> |
 
-<p>Drones is a live realtime virtual drone viewer and controller. Observe your fleet of drones on a larger geographical scale or take control, become a drone pilot and navigate your way accross the scapes.</p>
+<p>Drones is a live real-time virtual drone viewer and controller. Observe your fleet of drones on a larger geographical scale or take control, become a drone pilot and navigate your way across the land (or sea!).</p>
 
 # Installation
 ## Docker
-<p>Drones is preferebly installed through a docker container but manual installation is also easily achieved. To install with docker cd into the app's root directory and run the following in your bash terminal:
+<p>Drones is preferably installed through a docker container but manual installation is also easily achieved. To install with docker, cd into the app's root directory and run the following in your bash terminal:
 </p>
 
 ```bash
@@ -22,8 +22,8 @@ docker run -p 8080:8080 -p 8090:8090 -d tropicalbastos/live-drones
 ```
 <p>That will map the app's http port of 8080 with the host's port of 8080 and also map the socket service port which will be registered by the app on 8090</p>
 
-## Conventional Environemnt
-<p>Installing this node app and running it on your machine requires the following (assuming node and npm are configured on your machine). First clone the repo:</p>
+## Conventional Environment
+<p>Installing this node app and running it on your machine requires the following (assuming git, node and npm are configured on your machine). First clone the repo:</p>
 
 ```bash
 git clone https://github.com/TropicalBastos/Drones
@@ -35,7 +35,7 @@ git clone https://github.com/TropicalBastos/Drones
 npm install
 ```
 
-<p>Finally the app can be run</p>
+<p>Finally, run the app</p>
 
 ```bash
 npm start
@@ -43,8 +43,8 @@ npm start
 
 # Testing
 
-<p>To run tests simply run `npm test` and the test suite which is based on `mocha` and `enzyme` will go through the backend and frontend tests in that order. More frontend tests need to be made as there are a lot of components to deal with, especially third party ones like Leaflet.</p>
-<p>The Enzyme test suite is not compatible with React 16's context api which makes frontend testing with React-Leaflet's map api cumbersome, needs a workaround.</p>
+To run tests simply run `npm test` and the test suite which is based on `mocha` and `enzyme` will go through the backend and frontend tests in that order. More frontend tests need to be made as there are a lot of components to deal with, especially ones that interface with third party components like `Map`, `TileLayer` and `Popup` from `react-leaflet`.
+The Enzyme test suite is not compatible with React 16's context api which makes frontend testing with React-Leaflet's map api cumbersome, needs a workaround.
 
 # Development
 ## Backend Architecture
