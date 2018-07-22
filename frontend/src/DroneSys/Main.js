@@ -9,8 +9,8 @@ export default class Main extends Component{
 
     render(){
         return(
-            <CoreDashboard>
-                <Dashboard history={this.props.history} />
+            <CoreDashboard history={this.props.history}>
+                <Dashboard />
             </CoreDashboard>
         );
     }

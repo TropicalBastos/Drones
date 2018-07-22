@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as Actions from '../actions/AppActions';
 import DroneHttp from './helpers/DroneHttp';
+import Back from './Back';
 
 /**
  * Core dashboard
@@ -41,6 +42,7 @@ class CoreDashboard extends Loader{
         return(
             <div className="dashboard">
                 {childrenWithProps}
+                <Back history={this.props.history} />
             </div>
         );
     }

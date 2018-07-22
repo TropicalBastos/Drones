@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import DroneMap from '../components/DroneMap';
-import Back from '../../Core/Back';
 import DroneHttp from '../../Core/helpers/DroneHttp';
 
 /**
@@ -15,7 +14,6 @@ const Dashboard = (props) => {
         <div>
             <h1>Drones Online: {props.drones.length}</h1>
             <DroneMap drones={props.drones} />
-            <Back history={props.history} />
         </div>
     );
 
