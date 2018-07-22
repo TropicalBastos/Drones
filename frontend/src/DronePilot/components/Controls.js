@@ -45,6 +45,10 @@ export default class Controls extends Component{
                         src="/res/down-arrow.png" />
                     </div>
                 </div>
+                <div className="drone-name">
+                    <p>You are controlling:</p>
+                    <h1>{this.props.name}</h1>
+                </div>
             </div>
         )
     }

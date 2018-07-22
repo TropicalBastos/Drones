@@ -18,6 +18,10 @@ body{
 
 .leaflet-popup{
     z-index: 9999;
+
+    .name{
+        font-size: 22px;
+    }
 }
 
 .intro{
@@ -145,6 +149,16 @@ body{
                 .double{
                     float: left;
                     width: 50%;
+                }
+            }
+
+            .drone-name{
+                position: absolute;
+                bottom: 15px;
+                left: 20px;
+
+                h1, p{
+                    margin: 0;
                 }
             }
         }

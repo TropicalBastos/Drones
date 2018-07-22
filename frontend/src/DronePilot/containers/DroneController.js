@@ -119,6 +119,7 @@ export default class DroneController extends Component{
                 zoom={this.state.zoom} 
                 drone={this.state.drone} />
                 <Controls 
+                name={this.state.drone.name}
                 moveUp={this.moveUp}
                 moveLeft={this.moveLeft} 
                 moveRight={this.moveRight} 
