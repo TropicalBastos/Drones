@@ -9,7 +9,9 @@ export default class Main extends Component{
 
     render(){
         return(
-            <CoreDashboard history={this.props.history}>
+            <CoreDashboard 
+            env={(this.props.env) ? this.props.env: null} 
+            history={this.props.history}>
                 <Dashboard />
             </CoreDashboard>
         );

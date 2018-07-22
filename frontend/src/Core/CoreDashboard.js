@@ -28,6 +28,11 @@ class CoreDashboard extends Loader{
      * Load the drones into the redux store
      */
     componentDidMount(){
+        if(this.props.env && this.props.env === 'test'){
+            this.cancel();
+            return;
+        }
+        
         this.setupSocket();
         DroneHttp.getDrones().then((drones) => {
             this.props.actions.loadDrones(drones);

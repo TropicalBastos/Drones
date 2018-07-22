@@ -1,11 +1,11 @@
-var { server } = require('../server');
+var { server } = require('../../server');
 var assert = require('assert');
 var chai = require('chai')
 var chaiHttp = require('chai-http');
 const should = chai.should;
 const expect = chai.expect;
 chai.use(chaiHttp);
-var DataPersistor = require('../model/InMemoryDataPersistor');
+var DataPersistor = require('../../model/InMemoryDataPersistor');
 
 describe('Get DroneController tests', () => {
 

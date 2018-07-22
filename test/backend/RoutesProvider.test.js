@@ -1,11 +1,11 @@
-var { server, app, io } = require('../server');
+var { server, app, io } = require('../../server');
 var assert = require('assert');
 var chai = require('chai')
 var chaiHttp = require('chai-http');
 const should = chai.should;
 const expect = chai.expect;
 chai.use(chaiHttp);
-const routes = require('../routes/api');
+const routes = require('../../routes/api');
 
 /**
  * Safety tests to check that all of the server's routes 
@@ -70,6 +70,6 @@ describe('Check that all routes work', () => {
     after(() => {
         io.close();
         server.close();
-    })
+    });
 
 });

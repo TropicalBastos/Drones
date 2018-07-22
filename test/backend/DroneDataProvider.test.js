@@ -1,5 +1,5 @@
 const assert = require('assert');
-var DataProvider = require('../model/DroneDataProvider');
+var DataProvider = require('../../model/DroneDataProvider');
 
 describe('DroneDataProvider tests', () => {
 
