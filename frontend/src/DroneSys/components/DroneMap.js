@@ -22,8 +22,8 @@ export default class DroneMap extends Component {
                     <Popup>
                         <span>Drone ID: {drone.id}</span><br />
                         <span className="name">{drone.name}</span><br />
-                        <span>Latitude: {location.lat}</span><br />
-                        <span>Longitude: {location.long}</span><br />
+                        <span>Latitude: {parseFloat(location.lat.toFixed(4))}</span><br />
+                        <span>Longitude: {parseFloat(location.long.toFixed(4))}</span><br />
                     </Popup>
                 </Marker>
       });

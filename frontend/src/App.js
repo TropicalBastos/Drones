@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import globals from './config/globals';
 import { createBrowserHistory } from 'history';
 import { applyMiddleware, compose, createStore } from 'redux';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
@@ -31,6 +32,9 @@ const store = createStore(
       ),
     ),
 );
+
+/** Initialise socket service */
+globals.socket.start();
 
 ReactDOM.render(
     <Provider store={store}>

@@ -22,8 +22,8 @@ const DroneItem = (props) => {
                         <span className="name">Drone Name: {props.drone.name}</span><br />
                         <span>Location:</span>
                         <ul>
-                            <li className="drone-location">Latitude: {location.lat}</li>
-                            <li className="drone-location">Longitude: {location.long}</li>
+                            <li className="drone-location">Latitude: {parseFloat(location.lat.toFixed(4))}</li>
+                            <li className="drone-location">Longitude: {parseFloat(location.long.toFixed(4))}</li>
                         </ul>
                     </div>
                 </Link>

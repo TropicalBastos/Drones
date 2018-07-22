@@ -3,20 +3,26 @@ import DroneMap from '../components/DroneMap';
 import { Redirect } from 'react-router';
 import Controls from '../components/Controls';
 import mapConfig from '../../config/map';
+import globals from '../../config/globals';
+import events from '../../config/events';
 
 /**
  * Main component holding the business logic
  * for drone geopositioning
  * 
- * Sends a request to the server every 5 seconds ONLY if the drone
- * location has moved, firing signals to the modem has to be rationed so as to 
- * be efficient and cost effective
+ * Sends a an update via socket to the server ONLY when 
+ * the current movement sequence has finished and ONLY if the location differs
+ * from the last updated location
+ * 
+ * Firing signals to the modem has to be rationed so as to 
+ * be as efficient and cost effective as possible
  */
 
 export default class DroneController extends Component{
 
     constructor(props){
         super(props);
+        this.lastUpdatedDrone = props.location.state;
         this.moveUp = this.moveUp.bind(this);
         this.moveLeft = this.moveLeft.bind(this);
         this.moveRight = this.moveRight.bind(this);
@@ -24,6 +30,9 @@ export default class DroneController extends Component{
         this.stopMotion = this.stopMotion.bind(this);
         this.moveUpInterval = this.moveUpInterval.bind(this);
         this.changeZoom = this.changeZoom.bind(this);
+        this.compareAndUpdate = this.compareAndUpdate.bind(this);
+        this.hasChanged = this.hasChanged.bind(this);
+        this.update = this.update.bind(this);
         this.state = {
             drone: props.location.state,
             zoom: mapConfig.pilotZoom
@@ -86,10 +95,13 @@ export default class DroneController extends Component{
     /** END OF MOVEMENT HANDLERS */
 
     /** Stops the interval handle that continuously moves the drone
+     * then does location checks
+     * @see compareAndUpdate
      * @return void
      */
     stopMotion(){
         clearInterval(this.interval);
+        this.compareAndUpdate();
     }
     /**
      * End move controls
@@ -100,6 +112,32 @@ export default class DroneController extends Component{
       */
     changeZoom(newZoomLevel){
         this.setState({ zoom: newZoomLevel });
+    }
+
+    /** If the drone's location has changed, send the update
+     * @return void
+     */
+    compareAndUpdate(){
+        if(this.hasChanged())
+            this.update();
+    }
+
+    /** Checks wether the location of the drone has changed
+     * @return bool
+     */
+    hasChanged(){
+        const { location } = this.state.drone;
+        const { lat, long } = this.lastUpdatedDrone;
+        const newLat = location.lat, newlong = location.long;
+        return (newLat !== lat || newLong !== long);
+    }
+
+    /** Sync the drone's location with the server
+     *  @return void
+     */
+    update(){
+        const socket = globals.socket.shared;
+        socket.emit(events.DRONE_UPDATE, this.state.drone);
     }
     
     render(){
