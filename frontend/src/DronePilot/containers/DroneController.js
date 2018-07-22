@@ -20,6 +20,8 @@ export default class DroneController extends Component{
         this.moveLeft = this.moveLeft.bind(this);
         this.moveRight = this.moveRight.bind(this);
         this.moveDown = this.moveDown.bind(this);
+        this.stopMotion = this.stopMotion.bind(this);
+        this.moveUpInterval = this.moveUpInterval.bind(this);
         this.state = {
             drone: props.location.state
         };
@@ -28,33 +30,68 @@ export default class DroneController extends Component{
     /**
      * Move controls
      */
-    moveUp(e, factor = 0.0025){
+
+    /** MOVEMENT INTERVALS
+     * The following four function are the base of the drones movement
+     * they dictate the interval that essentially motorises the drones
+     * in a single direction
+     */
+    moveUpInterval(factor){
         var { drone } = this.state;
         drone.location.lat = drone.location.lat + factor;
         this.setState({ drone });
     }
 
-    moveLeft(e, factor = 0.0025){
+    moveLeftInterval(factor){
         var { drone } = this.state;
         drone.location.long = drone.location.long - factor;
         this.setState({ drone });
     }
 
-    moveRight(e, factor = 0.0025){
+    moveRightInterval(factor){
         var { drone } = this.state;
         drone.location.long = drone.location.long + factor;
         this.setState({ drone });
     }
 
-    moveDown(e, factor = 0.0025){
+    moveDownInterval(factor){
         var { drone } = this.state;
         drone.location.lat = drone.location.lat - factor;
         this.setState({ drone });
     }
+    /** END OF INTERVALS */
+
+    /** MOVEMENT HANDLERS
+     * The following four functions are the evnt handlers that call
+     * the movement intervals
+     */
+    moveUp(e, factor = 0.00001){
+        this.interval = setInterval(() => this.moveUpInterval(factor));
+    }
+
+    moveLeft(e, factor = 0.00001){
+        this.interval = setInterval(() => this.moveLeftInterval(factor));
+    }
+
+    moveRight(e, factor = 0.00001){
+        this.interval = setInterval(() => this.moveRightInterval(factor));
+    }
+
+    moveDown(e, factor = 0.00001){
+        this.interval = setInterval(() => this.moveDownInterval(factor));
+    }
+    /** END OF MOVEMENT HANDLERS */
+
+    /** Stops the interval handle that continuously moves the drone
+     * @return void
+     */
+    stopMotion(){
+        clearInterval(this.interval);
+    }
     /**
      * End move controls
      */
-
+    
     render(){
         /**
          * If the state hasnt been passed in from a selected drone
@@ -72,7 +109,8 @@ export default class DroneController extends Component{
                 moveUp={this.moveUp}
                 moveLeft={this.moveLeft} 
                 moveRight={this.moveRight} 
-                moveDown={this.moveDown} />
+                moveDown={this.moveDown}
+                stopMotion={this.stopMotion} />
             </div>
         );
     }

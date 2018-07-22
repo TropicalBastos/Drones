@@ -12,17 +12,37 @@ export default class Controls extends Component{
             <div className="controls-wrapper">
                 <div className="controls">
                     <div className="single up">
-                        <img onClick={this.props.moveUp} src="/res/up-arrow.png" />
+                        <img 
+                        draggable={false}
+                        onMouseOut={this.props.stopMotion} 
+                        onMouseUp={this.props.stopMotion} 
+                        onMouseDown={this.props.moveUp} 
+                        src="/res/up-arrow.png" />
                     </div>
                     <div className="double left">
-                        <img onClick={this.props.moveLeft} src="/res/left-arrow.png" />
+                        <img 
+                        draggable={false}
+                        onMouseDown={this.props.moveLeft}
+                        onMouseOut={this.props.stopMotion} 
+                        onMouseUp={this.props.stopMotion} 
+                        src="/res/left-arrow.png" />
                     </div>
                     <div className="double right">
-                        <img onClick={this.props.moveRight} src="/res/right-arrow.png" />
+                        <img 
+                        draggable={false}
+                        onMouseDown={this.props.moveRight} 
+                        onMouseOut={this.props.stopMotion} 
+                        onMouseUp={this.props.stopMotion} 
+                        src="/res/right-arrow.png" />
                     </div>
                     <div className="clearfix"></div>
                     <div className="single down">
-                        <img onClick={this.props.moveDown} src="/res/down-arrow.png" />
+                        <img 
+                        draggable={false}
+                        onMouseDown={this.props.moveDown} 
+                        onMouseOut={this.props.stopMotion} 
+                        onMouseUp={this.props.stopMotion} 
+                        src="/res/down-arrow.png" />
                     </div>
                 </div>
             </div>
