@@ -52,24 +52,28 @@ export default class DroneController extends Component{
         var { drone } = this.state;
         drone.location.lat = drone.location.lat + factor;
         this.setState({ drone });
+        this.compareAndUpdate();
     }
 
     moveLeftInterval(factor){
         var { drone } = this.state;
         drone.location.long = drone.location.long - factor;
         this.setState({ drone });
+        this.compareAndUpdate();
     }
 
     moveRightInterval(factor){
         var { drone } = this.state;
         drone.location.long = drone.location.long + factor;
         this.setState({ drone });
+        this.compareAndUpdate();
     }
 
     moveDownInterval(factor){
         var { drone } = this.state;
         drone.location.lat = drone.location.lat - factor;
         this.setState({ drone });
+        this.compareAndUpdate();
     }
     /** END OF INTERVALS */
 
@@ -95,13 +99,11 @@ export default class DroneController extends Component{
     /** END OF MOVEMENT HANDLERS */
 
     /** Stops the interval handle that continuously moves the drone
-     * then does location checks
      * @see compareAndUpdate
      * @return void
      */
     stopMotion(){
         clearInterval(this.interval);
-        this.compareAndUpdate();
     }
     /**
      * End move controls
