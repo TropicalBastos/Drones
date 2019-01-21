@@ -12,10 +12,16 @@
 </p>
 
 ```bash
+docker-compose up
+```
+
+Or:
+
+```bash
 docker build -t tropicalbastos/live-drones .
 ```
 
-<p>Then to run the container with the correct port mappings run the following:</p>
+<p>Then to run the container with the correct port mappings run the following if you didn't build with docker-compose:</p>
 
 ```bash
 docker run -p 8080:8080 -p 8090:8090 -d tropicalbastos/live-drones
